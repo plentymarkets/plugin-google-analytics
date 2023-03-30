@@ -1,7 +1,6 @@
-<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
-<script async src="https://www.googletagmanager.com/gtag/js?id=test"> </script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config("GoogleAnalytics.trackingId") }}"></script>
 {% set anonymizeIP = config("GoogleAnalytics.anonymizeIPs") == "true" %}
+<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
 
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -31,7 +30,7 @@
                     {% endif %}
                 {% endif %}
 
-            {% endfor %}
+            {% endfor %} 
 
             gtag('event','purchase',{
                 'transaction_id': '{{ data.order.id }}',
