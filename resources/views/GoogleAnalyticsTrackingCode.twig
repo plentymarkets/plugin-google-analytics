@@ -11,7 +11,7 @@
     {% if anonymizeIP  %}
         gtag('set', 'anonymizeIp', true);
     {% endif %}
-
+{#
     {% set shippingCosts = 0 %}
     {% set webstoreConfig = services.webstoreConfig.getWebstoreConfig() %}
     {% set useGross = config("GoogleAnalytics.submitGrossPrices") == "true" %}
@@ -19,7 +19,7 @@
     {% if trackOrder %}
         {% set data = services.customer.getLatestOrder() %}
         {% if data is defined %}
-            {# Calculate shipping costs #}
+            {# Calculate shipping costs }
             {% for item in data.order.orderItems %}
 
                 {% if item.typeId == 6 %}
@@ -55,5 +55,6 @@
                 }]
             });
         {% endif %}
-    {% endif %}
+    {% endif %} 
+    #}
 </script>
