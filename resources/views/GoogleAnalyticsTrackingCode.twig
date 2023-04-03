@@ -1,5 +1,4 @@
-
-
+{# <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics"></script> #}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ config("GoogleAnalytics.trackingId") }}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -8,11 +7,11 @@
 
     gtag('config', '{{ config("GoogleAnalytics.trackingId") }}');
 
-    {% set anonymizeIP = config("GoogleAnalytics.anonymizeIPs") == "true" %}
-    {% if anonymizeIP  %}
+    {# {% set anonymizeIP = config("GoogleAnalytics.anonymizeIPs") == "true" %} #}
+    {# {% if anonymizeIP  %}
         gtag('set', 'anonymizeIp', true);
-    {% endif %}
-
+    {% endif %} #}
+{# 
     {% set shippingCosts = 0 %}
     {% set webstoreConfig = services.webstoreConfig.getWebstoreConfig() %}
     {% set useGross = config("GoogleAnalytics.submitGrossPrices") == "true" %}
@@ -20,7 +19,7 @@
     {% if trackOrder %}
         {% set data = services.customer.getLatestOrder() %}
         {% if data is defined %}
-            {# Calculate shipping costs #}
+            {# Calculate shipping costs 
             {% for item in data.order.orderItems %}
 
                 {% if item.typeId == 6 %}
@@ -56,6 +55,6 @@
                 }]
             });
         {% endif %}
-    {% endif %} 
+    {% endif %}  #}
 </script>
-<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics"></script>
+
