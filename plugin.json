@@ -34,9 +34,10 @@
             "key"           : "GoogleAnalytics\\Providers\\PurchaseEventCodeProvider",
             "name"          : "Google Analytics purchase event code",
             "description"   : "Include Google Analytics tracking code for purchase event",
-            "defaultLayoutContainer": "Ceres::OrderConfirmation.BeforeOrderDetails"
+            "defaultLayoutContainer": "Ceres::Script.Loader"
         }
     ],
     "dependencies"      : [],
     "runOnBuild"        : []
 }
+
