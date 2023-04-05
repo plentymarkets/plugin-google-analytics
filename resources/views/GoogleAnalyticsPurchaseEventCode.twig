@@ -16,30 +16,30 @@
                     {% set shippingCosts = shippingCosts + item.amounts[0].priceNet %}
                     {% endif %}
                 {% endif %}
-
             {% endfor %}
-
-            gtag('event','purchase', { 'debug_mode':true },{
-                'transaction_id': '{{ data.order.id }}',
-                'affiliation'   : '{{ webstoreConfig.name }}',
-                'value'         : '{% if useGross %}{{ data.order.amounts[0].grossTotal }}{% else %}{{ data.order.amounts[0].netTotal }}{% endif %}',
-                'shipping'      : '{{ shippingCosts }}',
-                'tax'           : '{{ data.order.amounts[0].vatTotal }}',
-                'currency'      : '{{ data.order.amounts[0].currency }}',
-                'items'         : [{
-                    {% for item in data.order.orderItems %}
-                        {% if item.typeId == 1 %}
-                        {
-                            'item_id'   : '{{ item.variation.number }}',
-                            'item_name' : '{{ item.orderItemName }}',
-                            'price'     : '{% if useGross %}{{ item.amounts[0].priceGross }}{% else %}{{ item.amounts[0].priceNet }}{% endif %}',
-                            'quantity'  : '{{ item.quantity }}',
-                            'currency'  : '{{ item.amounts[0].currency }}'
-                        },
-                        {% endif %}
-                    {% endfor %}
-                }]
-            });
+            document.getElementsByClassName("purchase").addEventListener("click", function () {
+                gtag('event','purchase', { 'debug_mode':true },{
+                    'transaction_id': '{{ data.order.id }}',
+                    'affiliation'   : '{{ webstoreConfig.name }}',
+                    'value'         : '{% if useGross %}{{ data.order.amounts[0].grossTotal }}{% else %}{{ data.order.amounts[0].netTotal }}{% endif %}',
+                    'shipping'      : '{{ shippingCosts }}',
+                    'tax'           : '{{ data.order.amounts[0].vatTotal }}',
+                    'currency'      : '{{ data.order.amounts[0].currency }}',
+                    'items'         : [{
+                        {% for item in data.order.orderItems %}
+                            {% if item.typeId == 1 %}
+                            {
+                                'item_id'   : '{{ item.variation.number }}',
+                                'item_name' : '{{ item.orderItemName }}',
+                                'price'     : '{% if useGross %}{{ item.amounts[0].priceGross }}{% else %}{{ item.amounts[0].priceNet }}{% endif %}',
+                                'quantity'  : '{{ item.quantity }}',
+                                'currency'  : '{{ item.amounts[0].currency }}'
+                            },
+                            {% endif %}
+                        {% endfor %}
+                    }]
+                });
+            };
         {% endif %}
     {% endif %}
 </script>
