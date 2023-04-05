@@ -19,7 +19,7 @@
 
             {% endfor %}
 
-            gtag('event','purchase',{
+            gtag('event','purchase', { 'debug_mode':true },{
                 'transaction_id': '{{ data.order.id }}',
                 'affiliation'   : '{{ webstoreConfig.name }}',
                 'value'         : '{% if useGross %}{{ data.order.amounts[0].grossTotal }}{% else %}{{ data.order.amounts[0].netTotal }}{% endif %}',
