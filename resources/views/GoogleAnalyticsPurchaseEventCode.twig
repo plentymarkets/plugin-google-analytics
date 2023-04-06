@@ -17,35 +17,28 @@
                     {% endif %}
                 {% endif %}
             {% endfor %}
-                gtag("event", "purchase", {
-                    transaction_id: "T_12345_2",
-                    value: 25.42,
-                    tax: 4.90,
-                    shipping: 5.99,
-                    currency: "USD",
-                    coupon: "SUMMER_SALE",
-                    items: [
+            gtag('event','purchase',{
+                transaction_id: '{{ data.order.id }}',
+                affiliation:    '{{ webstoreConfig.name }}',
+                value:          '{% if useGross %}{{ data.order.amounts[0].grossTotal }}{% else %}{{ data.order.amounts[0].netTotal }}{% endif %}',
+                shipping:       '{{ shippingCosts }}',
+                tax:            '{{ data.order.amounts[0].vatTotal }}',
+                currency:       '{{ data.order.amounts[0].currency }}',
+
+                items         : [{
+                    {% for item in data.order.orderItems %}
+                        {% if item.typeId == 1 %}
                         {
-                            item_id: "SKU_12345",
-                            item_name: "Stan and Friends Tee",
-                            affiliation: "Google Merchandise Store",
-                            coupon: "SUMMER_FUN",
-                            discount: 2.22,
-                            index: 0,
-                            item_brand: "Google",
-                            item_category: "Apparel",
-                            item_category2: "Adult",
-                            item_category3: "Shirts",
-                            item_category4: "Crew",
-                            item_category5: "Short sleeve",
-                            item_list_id: "related_products",
-                            item_list_name: "Related Products",
-                            item_variant: "green",
-                            location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
-                            price: 9.99,
-                            quantity: 1
-                        }]
-                });
+                            item_id   : '{{ item.variation.number }}',
+                            item_name : '{{ item.orderItemName }}',
+                            price     : '{% if useGross %}{{ item.amounts[0].priceGross }}{% else %}{{ item.amounts[0].priceNet }}{% endif %}',
+                            quantity  : '{{ item.quantity }}',
+                            currency  : '{{ item.amounts[0].currency }}'
+                        },
+                        {% endif %}
+                    {% endfor %}
+                }]
+            });
         {% endif %}
     {% endif %}
 </script>
