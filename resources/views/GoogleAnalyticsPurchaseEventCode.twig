@@ -24,13 +24,18 @@
                     shipping: "{{ shippingCosts }}",
                     currency: "{{ data.order.amounts[0].currency }}",
                     items: [
-                        {
-                            item_id: "{{ item.variation.number }}",
-                            item_name: "{{ item.orderItemName }}",
-                            affiliation: "{{ webstoreConfig.name }}",
-                            price: {% if useGross %}{{ item.amounts[0].priceGross }}{% else %}{{ item.amounts[0].priceNet }}{% endif %},
-                            quantity: {{ item.quantity }}
-                        }]
+                        {% for item in data.order.orderItems %}
+                            {% if item.typeId == 1 %}
+                            {
+                                item_id: "{{ item.variation.number }}",
+                                item_name: "{{ item.orderItemName }}",
+                                affiliation: "{{ webstoreConfig.name }}",
+                                price: {% if useGross %}{{ item.amounts[0].priceGross }}{% else %}{{ item.amounts[0].priceNet }}{% endif %},
+                                quantity: {{ item.quantity }}
+                            },
+                            {% endif %}
+                        {% endfor %}
+                    ]
                 });
         {% endif %}
     {% endif %}
