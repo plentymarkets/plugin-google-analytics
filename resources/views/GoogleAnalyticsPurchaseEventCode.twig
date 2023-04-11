@@ -19,7 +19,7 @@
             {% endfor %}
                 gtag("event", "purchase", {
                     transaction_id: "{{ data.order.id }}",
-                    value: "{% if useGross %}"{{ data.order.amounts[0].grossTotal }}"{% else %}"{{ data.order.amounts[0].netTotal }}"{% endif %},
+                    value: "{% if useGross %}{{ data.order.amounts[0].grossTotal }}{% else %}{{ data.order.amounts[0].netTotal }}{% endif %}",
                     tax: "{{ data.order.amounts[0].vatTotal }}",
                     shipping: "{{ shippingCosts }}",
                     currency: "{{ data.order.amounts[0].currency }}",
@@ -30,7 +30,7 @@
                                 item_id: "{{ item.variation.number }}",
                                 item_name: "{{ item.orderItemName }}",
                                 affiliation: "{{ webstoreConfig.name }}",
-                                price: {% if useGross %}"{{ item.amounts[0].priceGross }}"{% else %}"{{ item.amounts[0].priceNet }}"{% endif %},
+                                price: "{% if useGross %}{{ item.amounts[0].priceGross }}{% else %}{{ item.amounts[0].priceNet }}{% endif %}",
                                 quantity: "{{ item.quantity }}"
                             },
                             {% endif %}
