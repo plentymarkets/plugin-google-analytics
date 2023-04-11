@@ -29,8 +29,15 @@
             "name"          :"Google Analytics tracking code",
             "description"   :"Include Google Analytics tracking code snippet",
             "defaultLayoutContainer": "Ceres::Template.Style"
+        },
+        {
+            "key"           : "GoogleAnalytics\\Providers\\PurchaseEventCodeProvider",
+            "name"          : "Google Analytics purchase event code",
+            "description"   : "Include Google Analytics tracking code for purchase event",
+            "defaultLayoutContainer": "Ceres::Script.Loader"
         }
     ],
     "dependencies"      : [],
     "runOnBuild"        : []
 }
+
