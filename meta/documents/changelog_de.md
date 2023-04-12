@@ -1,6 +1,6 @@
 # Release Notes für GoogleAnalytics
 
-## v1.1.5 (2023-14-04)
+## v2.0.0 (2023-14-04)
 
 ### Geändert
 - Die Kompatibilität zu Google Analytics 4 wurde hergestellt.
