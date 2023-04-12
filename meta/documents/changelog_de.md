@@ -1,5 +1,14 @@
 # Release Notes für GoogleAnalytics
 
+## v1.1.5 (2023-14-04)
+
+### Geändert
+- Kompatibilität zu Google Analytics 4 hergestellt.
+
+### TODO
+- Diese Pluginversion kommuniziert nur mit GA4 Properties! Prüfen Sie daher, ob in den Plugineinstellungen eine GA4 kompatible Mess ID im Format (G-...) eingetragen wurde.
+- In den Plugineinstellungen muss die Containerverknüpfung **Google Analytics purchase event code** gesetzt werden.
+
 ## v1.1.4 (2022-25-07)
 
 ### Geändert
