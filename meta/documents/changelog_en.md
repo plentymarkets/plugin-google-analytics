@@ -1,5 +1,14 @@
 # Release Notes for GoogleAnalytics
 
+## v2.0.0 (2023-14-04)
+
+### Changes
+- The compatibility with Google Analytics 4 has been implemented.
+
+### TODO
+- This plugin version only communicates with GA4 properties. Make sure that a GA4-compatible <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Mess ID</a> in the format (G-XXXXX) has been stored in the plugin settings.
+- In the plugin settings, the container link **Google Analytics purchase event code** has to be set.
+
 ## v1.1.4 (2022-25-07)
 
 ### Changes
