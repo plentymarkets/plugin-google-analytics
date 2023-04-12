@@ -3,11 +3,11 @@
 ## v1.1.5 (2023-14-04)
 
 ### Geändert
-- Kompatibilität zu Google Analytics 4 hergestellt.
+- Die Kompatibilität zu Google Analytics 4 wurde hergestellt.
 
 ### TODO
-- Diese Pluginversion kommuniziert nur mit GA4 Properties! Prüfen Sie daher, ob in den Plugineinstellungen eine GA4 kompatible Mess ID im Format (G-...) eingetragen wurde.
-- In den Plugineinstellungen muss die Containerverknüpfung **Google Analytics purchase event code** gesetzt werden.
+- Diese Plugin-Version kommuniziert ausschließlich mit GA4 Properties. Prüfe daher, ob eine GA4-kompatible <a href="https://support.google.com/analytics/answer/12270356?hl=de" target="_blank">Mess-ID</a> im Format (G-XXXXX) in den Plugin-Einstellungen eingetragen wurde.
+- In den Plugin-Einstellungen muss die Container-Verknüpfung **Google Analytics purchase event code** gesetzt werden.
 
 ## v1.1.4 (2022-25-07)
 
