@@ -1,7 +1,5 @@
-
-<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ config("GoogleAnalytics.trackingId") }}"></script>
-<script>
+<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics" async src="https://www.googletagmanager.com/gtag/js?id={{ config("GoogleAnalytics.trackingId") }}"></script>
+<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
