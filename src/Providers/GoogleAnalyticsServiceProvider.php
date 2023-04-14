@@ -37,7 +37,7 @@ class GoogleAnalyticsServiceProvider extends ServiceProvider
                     'group' => $config->get('GoogleAnalytics.consentGroup', 'tracking'),
                     'necessary' => $config->get('GoogleAnalytics.consentNecessary') === 'true',
                     'isOptOut' => $config->get('GoogleAnalytics.consentOptOut') === 'true',
-                    'cookieNames' => ['_ga', '_gid', '_gat']
+                    'cookieNames' => ['/^_ga/','_ga', '_gid', '_gat']
                 ];
             }
         );
