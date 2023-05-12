@@ -1,5 +1,8 @@
 # Release Notes for GoogleAnalytics
 
+## v2.0.2 (2023-12-05)
+- Changed cookie settings.
+
 ## v2.0.1 (2023-14-04)
 
 ### Changed
