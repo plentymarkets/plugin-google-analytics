@@ -1,4 +1,4 @@
-<script>
+<script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
     {% set shippingCosts = 0 %}
     {% set webstoreConfig = services.webstoreConfig.getWebstoreConfig() %}
     {% set useGross = config("GoogleAnalytics.submitGrossPrices") == "true" %}
