@@ -1,3 +1,7 @@
+{% if config('GoogleAnalytics.mode') == 'basic' %}
+    {% set permssions = 'granted' %}
+{% endif %}
+
 <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics" async src="https://www.googletagmanager.com/gtag/js?id={{ config("GoogleAnalytics.trackingId") }}"></script>
 <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
     window.dataLayer = window.dataLayer || [];
@@ -5,6 +9,13 @@
     gtag('js', new Date());
 
     gtag('config', '{{ config("GoogleAnalytics.trackingId") }}');
+
+    gtag('consent', 'default', {
+      'ad_storage': '{{ permissions }}',
+      'ad_user_data': '{{ permissions }}',
+      'ad_personalization': '{{ permissions }}',
+      'analytics_storage': '{{ permissions }}'
+    });
 
     {% set anonymizeIP = config("GoogleAnalytics.anonymizeIPs") == "true" %}
     {% if anonymizeIP  %}
