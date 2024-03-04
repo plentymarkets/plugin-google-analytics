@@ -1,19 +1,13 @@
-{% if config('GoogleAnalytics.consentMode') == 'basic' %}
-    {% set permissions = 'granted' %}
-{% else %}
-    {% set permissions = 'granted' %}
-{% endif %}
-
 <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics" async src="https://www.googletagmanager.com/gtag/js?id={{ config("GoogleAnalytics.trackingId") }}"></script>
 <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
     gtag('consent', 'default', {
-      'ad_storage': '{{ permissions }}',
-      'ad_user_data': '{{ permissions }}',
-      'ad_personalization': '{{ permissions }}',
-      'analytics_storage': '{{ permissions }}'
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
     });
 
     gtag('js', new Date());

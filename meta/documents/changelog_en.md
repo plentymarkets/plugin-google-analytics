@@ -1,9 +1,9 @@
 # Release Notes for GoogleAnalytics
 
-## v2.1.0 (2024-XX-XX)
+## v2.1.0 (2024-04-03)
 
 ### Changed
-- Das Plugin wurde um den Consent Mode V2 erweitert. Im Standard funktioniert das Plugin mit dem Basis Modus und kann auf den erweiterten Modus umgestellt werden.
+- The plugin has been expanded to include Consent Mode V2. By default, the plugin works with the basic mode and will be extended in a future version.
 
 ## v2.0.2 (2023-12-05)
 

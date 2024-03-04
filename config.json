@@ -59,24 +59,6 @@
             ]
           }
         },
-        "consentMode": {
-          "type": "selectBox",
-          "required": false,
-          "label": "Config.consentGroupLabel",
-          "options": {
-            "defaultValue": "basic",
-            "selectBoxValues": [
-              {
-                "value": "basic",
-                "caption": "Config.consentBasic"
-              },
-              {
-                "value": "advanced",
-                "caption": "Config.consentAdvanced"
-              }
-            ]
-          }
-        },
         "consentNecessary": {
           "type": "checkBox",
           "required": false,
