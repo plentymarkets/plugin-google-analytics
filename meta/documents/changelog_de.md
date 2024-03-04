@@ -5,11 +5,6 @@
 ### Geändert
 - Das Plugin wurde um den Consent Mode V2 erweitert. Im Standard funktioniert das Plugin mit dem Basis Modus und wird in einer zukünftigen Version um erweitert.
 
-## v2.0.1 (2023-14-04)
-
-### Geändert
-- Cookie Einstellungen angepasst.
-
 ## v2.0.2 (2023-12-04)
 
 ### Behoben
