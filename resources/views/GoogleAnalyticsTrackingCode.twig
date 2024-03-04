@@ -14,7 +14,6 @@
 
     gtag('config', '{{ config("GoogleAnalytics.trackingId") }}');
 
-
     {% set anonymizeIP = config("GoogleAnalytics.anonymizeIPs") == "true" %}
     {% if anonymizeIP  %}
         gtag('set', 'anonymizeIp', true);
