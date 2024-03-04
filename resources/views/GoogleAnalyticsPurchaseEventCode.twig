@@ -1,3 +1,7 @@
+{% if config('GoogleAnalytics.consentMode') == 'basic' %}
+    {% set permissions = 'granted' %}
+{% endif %}
+
 <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
     {% set shippingCosts = 0 %}
     {% set webstoreConfig = services.webstoreConfig.getWebstoreConfig() %}
@@ -17,6 +21,12 @@
                     {% endif %}
                 {% endif %}
             {% endfor %}
+                gtag('consent', 'default', {
+                  'ad_storage': '{{ permissions }}',
+                  'ad_user_data': '{{ permissions }}',
+                  'ad_personalization': '{{ permissions }}',
+                  'analytics_storage': '{{ permissions }}'
+                });
                 gtag("event", "purchase", {
                     transaction_id: "{{ data.order.id }}",
                     value: "{% if useGross %}{{ data.order.amounts[0].grossTotal }}{% else %}{{ data.order.amounts[0].netTotal }}{% endif %}",
