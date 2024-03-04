@@ -2,9 +2,18 @@
 <script type="text/plain" data-cookie-consent="{{ config('GoogleAnalytics.consentGroup') }}.googleAnalytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
+    });
+
     gtag('js', new Date());
 
     gtag('config', '{{ config("GoogleAnalytics.trackingId") }}');
+
 
     {% set anonymizeIP = config("GoogleAnalytics.anonymizeIPs") == "true" %}
     {% if anonymizeIP  %}
